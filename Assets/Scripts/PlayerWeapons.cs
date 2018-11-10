@@ -58,8 +58,8 @@ public class PlayerWeapons : MonoBehaviour {
     void swordWeapon()
     {
         //attackTimer     how long has passed since last attack
-        float attackDelay = .75f; // time between attacks
-        float swordTime = .25f; // how long the sword stays in front of player
+        float attackDelay = .15f; // time between attacks
+        float swordTime = .1f; // how long the sword stays in front of player
         // swordTimer      keep track how long sword has been in front of player
         GameObject sword = weapons[0];
         BoxCollider2D swordHitbox = sword.GetComponent<BoxCollider2D>();
@@ -88,7 +88,7 @@ public class PlayerWeapons : MonoBehaviour {
             attackTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKey("v") && attackTimer <= 0)
+        if (Input.GetMouseButtonDown(0) && attackTimer <= 0)
         {
             attackTimer = attackDelay;
             swordTimer = swordTime;

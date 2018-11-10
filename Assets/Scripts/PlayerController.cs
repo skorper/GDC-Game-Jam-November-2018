@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour {
     private float ignoreTimer;
     private float ignoretime = 1;
 
+    public int actualDirection;
+
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
     public int Health;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigi; // was private
     private PlayerWeapons Weps;
     private GameObject door;
+    private PlayerWeapons playerWeps;
 
     public PhysicsMaterial2D PlayerDefault;
     public PhysicsMaterial2D PlayerJump;
@@ -92,9 +95,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey("a") && !Input.GetKey("d"))//move left
         {
             /* Call on changeState method to change state */
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && Weps.swordTimer < 0)
             {
-                changeState(STATE_WALK, LEFT);
+                {
+                    actualDirection = LEFT;
+                    changeState(STATE_WALK, LEFT);
+                }
             }
 
             rigi.AddForce(new Vector2(-moveSpeed, 0));
@@ -104,8 +110,11 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey("d") && !Input.GetKey("a"))//move right
         {
             /* Call on changeState method to change state */
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && Weps.swordTimer < 0)
             {
+                actualDirection = RIGHT;
+                changeState(STATE_WALK, RIGHT);
+            } else {
                 changeState(STATE_WALK, RIGHT);
             }
 
@@ -138,7 +147,6 @@ public class PlayerController : MonoBehaviour {
         }
         
         //change weapons
-
 
     }
 
@@ -174,12 +182,15 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+
+
     public void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Door" && Input.GetKeyUp("e"))
         {
             collision.gameObject.GetComponent<DoorController>().DoorActivated();
         }
+        onGround = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

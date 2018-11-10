@@ -13,8 +13,6 @@ public class KickPlatform : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
 
-        
-
     }
 	
 	// Update is called once per frame
@@ -22,7 +20,7 @@ public class KickPlatform : MonoBehaviour {
 		
 	}
 
-    // kisks player away from boss
+    // kicks player away from 
     private void OnTriggerEnter2D(Collider2D collision) {
         
         if ( collision.gameObject.CompareTag("Player")) {

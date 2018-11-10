@@ -37,14 +37,19 @@ public class LustScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        // health set to 6
         health = 6;
 
+        // in Francesca form 
         Frn = true;
 
-        time = 5; 
 
-        tempTime = time;
+        //time = 5; 
+        
+        // wait in seconds
+        tempTime = 5;
 
+        // finds player
         player = GameObject.FindGameObjectWithTag("Player");
 
         rig = GetComponent<Rigidbody2D>();
@@ -55,7 +60,7 @@ public class LustScript : MonoBehaviour {
 	void Update () {
 
         
-
+        // does Kiss attack every 5 seconds
         if (tempTime > 0) {
 
             tempTime -= Time.deltaTime;
@@ -65,10 +70,11 @@ public class LustScript : MonoBehaviour {
         else {
 
             Kiss();
-            tempTime = time;
+            tempTime = 5;
 
         }
 
+        // walk below half health
         if ( health <= 3 ) {
             Walk();
 
@@ -76,6 +82,7 @@ public class LustScript : MonoBehaviour {
 
     }
 
+    // method to launch hearts that follow player and spilt into 3 little hearts in HeartProjectile script
     public void Kiss() {
 
         Instantiate(kiss, new Vector3(transform.position.x - 2, transform.position.y, 0), Quaternion.identity);
@@ -91,6 +98,7 @@ public class LustScript : MonoBehaviour {
 
     }
 
+    // makes Lust goes toward player
     public void Walk () {
 
         player = GameObject.FindGameObjectWithTag("Player");

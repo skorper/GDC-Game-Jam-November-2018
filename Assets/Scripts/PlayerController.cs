@@ -8,23 +8,29 @@ using UnityEngine;
  */
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed = 10;
-    public float jumpForce = 10;
-    public float speedLimit = 100;
+    public float moveSpeed;
+    public float jumpForce;
+    public float speedLimit;
+    public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
 
     private bool onGround = false;
     private Rigidbody2D rigi;
+    private PlayerWeapons Weps;
 
     
 	void Start ()
     {
         rigi = gameObject.GetComponent<Rigidbody2D>();
-	}
+        Weps = gameObject.GetComponent<PlayerWeapons>();
+        Weps.SwapWeapons("sword", "");
+
+    }
 	
 
 	void Update ()
     {
         Movement();
+
     }
 
     void Movement()
@@ -44,18 +50,24 @@ public class PlayerController : MonoBehaviour {
         {
             rigi.AddForce(new Vector2(0, jumpForce));
         }
-        Debug.Log(rigi.velocity);
+        
         //speed limit x
-        if(rigi.velocity.x > speedLimit)
+        if(rigi.velocity.x > speedLimit)//check to see if max speed in x direction
         {
             rigi.velocity = new Vector2(speedLimit, rigi.velocity.y);
         }
 
-        if (rigi.velocity.x < -speedLimit)
+        if (rigi.velocity.x < -speedLimit)//check to see if max speed in -x direction
         {
             rigi.velocity = new Vector2(-speedLimit, rigi.velocity.y);
         }
+        
+        //change weapons
+
+
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,7 +76,6 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
          onGround = false;
     }
 

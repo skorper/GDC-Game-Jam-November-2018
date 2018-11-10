@@ -13,29 +13,29 @@ using System;
  */
 public class DoorController : MonoBehaviour 
 {
-	private Animator animator;
+	// private Animator animator;
 	public String sceneToLoad;
 
 	void Start()
 	{
-		animator = GetComponent<Animator>();
+		// animator = GetComponent<Animator>();
 	}
 
 	void LoadScene()
 	{
 		SceneManager.LoadScene(sceneToLoad);
-		Debug.Log("Scene to load: " + sceneToLoad);
 	}
 
-	void AnimateDoor()
-	{
-		//TODO need to create an animation called OpenDoor for each door
-		animator.SetTrigger("OpenDoor");
-	}
+	// No door animation provided 
+	// void AnimateDoor()
+	// {
+	// 	//TODO need to create an animation called OpenDoor for each door
+	// 	animator.SetTrigger("OpenDoor");
+	// }
 
 	public void DoorActivated()
 	{
-		AnimateDoor();
+		// AnimateDoor();
 		LoadScene();
 	}
 }

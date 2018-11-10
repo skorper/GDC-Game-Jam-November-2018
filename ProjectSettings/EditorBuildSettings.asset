@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuSettings.unity
     guid: f54e5d3eeb68544a7aad2ab1120c3de3
+  - enabled: 1
+    path: Assets/Scenes/Envy.unity
+    guid: bb2747696b0d8754b8d9accf610c4220
+  - enabled: 1
+    path: Assets/Scenes/Lust.unity
+    guid: ea401e0ee029a35468cc587d188dee05
+  - enabled: 1
+    path: Assets/Scenes/Pride.unity
+    guid: b6a752cf29bb8184aa666ac7d1c753bb
   m_configObjects: {}

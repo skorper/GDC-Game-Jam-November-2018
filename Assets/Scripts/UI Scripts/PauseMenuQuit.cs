@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //updated to current API
 
 public class PauseMenuQuit : MonoBehaviour {
 
@@ -22,6 +23,6 @@ public class PauseMenuQuit : MonoBehaviour {
 	*/
 	public void OnClick()
 	{
-		Application.LoadLevel("mainmenu"); 
+        SceneManager.LoadScene("mainmenu");
 	} /* End OnMouseUp */
 }/* End Class */

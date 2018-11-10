@@ -10,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //keep getting spammed warnings so i updated this script - Alex
 
 public class ChangeScene : MonoBehaviour {
 
@@ -24,6 +25,6 @@ public class ChangeScene : MonoBehaviour {
 	*/
 	public void OnMouseUp()
 	 {
-	     Application.LoadLevel(levelToLoad); 
+	     SceneManager.LoadScene(levelToLoad); 
 	 } /* End OnMouseUp */
 }/* End Class */

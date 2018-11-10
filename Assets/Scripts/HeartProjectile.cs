@@ -58,6 +58,8 @@ public class HeartProjectile : MonoBehaviour {
 
                 heart2 = Instantiate(heart, transform.position, Quaternion.identity);
 
+                heart2.gameObject.GetComponent<HeartProjectile>().angle = angle;
+
                 heart3 = Instantiate(heart, transform.position, Quaternion.identity);
 
                 heart3.gameObject.GetComponent<HeartProjectile>().angle = angle - rando;

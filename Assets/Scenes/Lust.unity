@@ -1055,7 +1055,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b4fcb977b32762743864b860e85f11dc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1181,6 +1181,11 @@ Prefab:
     - target: {fileID: 1900920940417088, guid: 7bf32c53496120a4b95d879d5031b8f6, type: 2}
       propertyPath: m_TagString
       value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 212003521068716418, guid: 7bf32c53496120a4b95d879d5031b8f6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf32c53496120a4b95d879d5031b8f6, type: 2}

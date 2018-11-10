@@ -16,7 +16,7 @@ public class PlayerWeapons : MonoBehaviour {
     public int currentWeaponIndex;
     public string powerup = "";
     private float attackTimer;
-    private float swordTimer;
+    public float swordTimer;
 
     // Use this for initialization
     void Start () {

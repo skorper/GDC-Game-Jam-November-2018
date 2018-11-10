@@ -3,8 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - Door
+=======
+  tags: []
+>>>>>>> b54dc4cfcc6c88d915796708736e248192685a75
   layers:
   - Default
   - TransparentFX

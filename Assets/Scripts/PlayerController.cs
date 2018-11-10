@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     private bool onGround = false;
     private Rigidbody2D rigi;
     private PlayerWeapons Weps;
+    private GameObject door;
 
     
 	void Start ()
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
     {
         Movement();
+
+
 
     }
 
@@ -72,6 +75,15 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
          onGround = true;
+
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Door" && Input.GetKeyUp("e"))
+        {
+            collision.gameObject.GetComponent<DoorController>().DoorActivated();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

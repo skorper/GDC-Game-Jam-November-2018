@@ -37,8 +37,9 @@ public class KickPlatform : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D collision) {
         
         if ( collision.gameObject.CompareTag("Player") && resetTimer <= 0) {
+
             playerController.IgnoreLimits();
-            player.transform.GetComponent<PlayerController>().rigi.AddForce(new Vector2(-pushBackSpeed, 1000));
+            player.transform.GetComponent<PlayerController>().rigi.AddForce(new Vector2(-pushBackSpeed, pushBackSpeed));
             resetTimer = resetTime;
         }
     }

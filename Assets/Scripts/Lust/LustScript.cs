@@ -48,6 +48,9 @@ public class LustScript : MonoBehaviour {
 
     private float invulerabilitytime = 1.5f;
 
+    private bool bossDead;
+
+    public GameObject Door; 
    
 
     // Use this for initialization
@@ -83,8 +86,6 @@ public class LustScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Debug.Log(health);
-
         if (invulerabilityTimer > 0)
         {
             invulerabilityTimer -= Time.deltaTime;
@@ -110,6 +111,18 @@ public class LustScript : MonoBehaviour {
             Frn = false;
 
             Walk();
+
+            Destroy(groundPlayform[0]);
+
+            Destroy(groundPlayform[1]);
+
+        }
+
+        if ( health <= 0 ) {
+
+            Instantiate(Door,new Vector3( 12, -6, 0 ) , Quaternion.identity );
+
+            Destroy(gameObject);
 
         }
 

@@ -223,6 +223,8 @@ MonoBehaviour:
   speedLimit: 5
   currentWeapon: 0
   Health: 0
+  MarioDeathSound: {fileID: 82583217287068362, guid: 1536550422b57194ab1f5090476017b7,
+    type: 2}
   rigi: {fileID: 50246025505119474}
   PlayerDefault: {fileID: 6200000, guid: 6477498985001254f9cbaf2b56513098, type: 2}
   PlayerJump: {fileID: 6200000, guid: 053ee36a3eb35f0488ba6a56e0f11336, type: 2}

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigi; // was private
     private PlayerWeapons Weps;
     private GameObject door;
+    private GameObject mainCamera;
 
     public PhysicsMaterial2D PlayerDefault;
     public PhysicsMaterial2D PlayerJump;
@@ -60,9 +61,10 @@ public class PlayerController : MonoBehaviour {
         animate = this.GetComponent<Animator>();
 
 
-        Health = 3;
+        Health = 1;
         rigi = gameObject.GetComponent<Rigidbody2D>();
         Weps = gameObject.GetComponent<PlayerWeapons>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         Weps.SwapWeapons("sword", "");
 
     }
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 
         if(invulterabilityTimer > 0)
         {
-
+            invulterabilityTimer -= Time.deltaTime;
         }
 
     }
@@ -136,6 +138,8 @@ public class PlayerController : MonoBehaviour {
         invulterabilityTimer = InvTime;
 
         Health -= 1;
+
+        Debug.Log("Lose health");
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -148,9 +152,15 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
          onGround = true;
+
+        if (collision.gameObject.tag == "EnemyAttack" && invulterabilityTimer <= 0)
+        {
+            TakeDamage();
+        }
 
     }
 

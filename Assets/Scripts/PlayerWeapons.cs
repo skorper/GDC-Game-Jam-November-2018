@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PlayerWeapons : MonoBehaviour {
 
-    private PlayerController controller;
+    //private PlayerController controller;
 
     public GameObject[] weapons;
     public bool usingSword = false;
@@ -21,7 +21,7 @@ public class PlayerWeapons : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        controller = gameObject.GetComponent<PlayerController>();
+        //controller = gameObject.GetComponent<PlayerController>();
 
 	}
 	

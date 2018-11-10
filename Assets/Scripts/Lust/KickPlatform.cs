@@ -8,6 +8,10 @@ public class KickPlatform : MonoBehaviour {
 
     public float pushBackSpeed;
 
+    private float resetTimer = 0;
+
+    private float resetTime = 3;
+
 	// Use this for initialization
 	void Start () {
 
@@ -18,15 +22,20 @@ public class KickPlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+        if(resetTimer > 0)
+        {
+            resetTimer -= Time.deltaTime;
+        }
+
 	}
 
     // kicks player away from 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         
-        if ( collision.gameObject.CompareTag("Player")) {
+        if ( collision.gameObject.CompareTag("Player") && resetTimer <= 0) {
 
             player.transform.GetComponent<PlayerController>().rigi.AddForce(new Vector2(-pushBackSpeed, 1000));
-
+            resetTimer = resetTime;
         }
     }
 }

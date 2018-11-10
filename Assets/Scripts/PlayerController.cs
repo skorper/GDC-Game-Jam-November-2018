@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigi; // was private
     private PlayerWeapons Weps;
     private GameObject door;
-    private GameObject mainCamera;
 
     public PhysicsMaterial2D PlayerDefault;
     public PhysicsMaterial2D PlayerJump;
@@ -61,10 +60,9 @@ public class PlayerController : MonoBehaviour {
         animate = this.GetComponent<Animator>();
 
 
-        Health = 1;
+        Health = 3;
         rigi = gameObject.GetComponent<Rigidbody2D>();
         Weps = gameObject.GetComponent<PlayerWeapons>();
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         Weps.SwapWeapons("sword", "");
 
     }
@@ -87,7 +85,10 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey("a") && !Input.GetKey("d"))//move left
         {
             /* Call on changeState method to change state */
-            changeState(STATE_WALK, LEFT);
+            if (Time.timeScale != 0)
+            {
+                changeState(STATE_WALK, LEFT);
+            }
 
             rigi.AddForce(new Vector2(-moveSpeed, 0));
 
@@ -96,7 +97,10 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey("d") && !Input.GetKey("a"))//move right
         {
             /* Call on changeState method to change state */
-            changeState(STATE_WALK, RIGHT);
+            if (Time.timeScale != 0)
+            {
+                changeState(STATE_WALK, RIGHT);
+            }
 
             rigi.AddForce(new Vector2(moveSpeed, 0));
         }

@@ -53,7 +53,6 @@ public class PauseMenuScript : MonoBehaviour {
 	/* Reveal pause menu */
 	public void showPaused(){
 
-		
 
 			pauseObjects.SetActive(true);
 		

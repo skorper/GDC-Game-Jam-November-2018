@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour {
     private float invulterabilityTimer;
     private float ignoreTimer;
     private float ignoretime = 1;
-
-    public int actualDirection;
+    private int actualDirection = 0;
 
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
     public int Health;
@@ -94,13 +93,11 @@ public class PlayerController : MonoBehaviour {
         //movement inputs
         if (Input.GetKey("a") && !Input.GetKey("d"))//move left
         {
+            actualDirection = LEFT;
             /* Call on changeState method to change state */
             if (Time.timeScale != 0 && Weps.swordTimer < 0)
             {
-                {
-                    actualDirection = LEFT;
-                    changeState(STATE_WALK, LEFT);
-                }
+                 changeState(STATE_WALK, actualDirection);     
             }
 
             rigi.AddForce(new Vector2(-moveSpeed, 0));
@@ -109,16 +106,31 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKey("d") && !Input.GetKey("a"))//move right
         {
+            actualDirection = RIGHT;
             /* Call on changeState method to change state */
             if (Time.timeScale != 0 && Weps.swordTimer < 0)
             {
-                actualDirection = RIGHT;
-                changeState(STATE_WALK, RIGHT);
-            } else {
-                changeState(STATE_WALK, RIGHT);
+                changeState(STATE_WALK, actualDirection);
             }
 
             rigi.AddForce(new Vector2(moveSpeed, 0));
+        }
+
+        if(!Input.GetKey("d") && !Input.GetKey("a") )
+        {
+            if (rigi.velocity.magnitude != 0)
+            {
+                changeState(STATE_WALK, actualDirection);
+            }
+            else
+            {
+                changeState(STATE_IDLE, 0);
+            }
+        }
+
+        if(Weps.swordTimer > 0)
+        {
+            changeState(STATE_STAB, actualDirection);
         }
 
         if (Input.GetKeyDown("space") && onGround) //jump, can only go if on the ground
@@ -147,7 +159,7 @@ public class PlayerController : MonoBehaviour {
         }
         
         //change weapons
-
+        
     }
 
     void TakeDamage()

@@ -19,6 +19,7 @@ public class ChangeHealthStatus : MonoBehaviour {
 	public Sprite midHealth;
 	public Sprite lowHealth;
 	public Sprite noHealth;
+	public GameObject gameOver;
 
 	/* Declare player object */
 	public GameObject player;
@@ -26,6 +27,10 @@ public class ChangeHealthStatus : MonoBehaviour {
 	/* Declare integer flag to determine if image change is necessary */
 	protected int healthFlag = 0;
 
+
+	void Start(){
+		gameOver.SetActive(false);
+	}
 
 	/* Check player health every update */
 	void Update(){
@@ -52,6 +57,7 @@ public class ChangeHealthStatus : MonoBehaviour {
 	  	else{
 	  		healthFlag = 0;
 	  		this.transform.GetComponent<UnityEngine.UI.Image>().sprite = noHealth;
+	  		gameOver.SetActive(true);
 	  	}
 	} /* End Update */
 } /* End Class */

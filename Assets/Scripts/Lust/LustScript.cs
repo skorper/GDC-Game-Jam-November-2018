@@ -26,6 +26,8 @@ public class LustScript : MonoBehaviour {
 
     public GameObject player;
 
+    public PlayerController playerController;
+
     private float distance;
 
     private Vector2 moveDistanceVector;
@@ -46,6 +48,9 @@ public class LustScript : MonoBehaviour {
 
     private float invulerabilitytime = 1.5f;
 
+    private bool bossDead;
+
+    public GameObject Door; 
    
 
     // Use this for initialization
@@ -72,6 +77,8 @@ public class LustScript : MonoBehaviour {
         // finds player
         player = GameObject.FindGameObjectWithTag("Player");
 
+        playerController = player.gameObject.GetComponent<PlayerController>();
+
         rig = GetComponent<Rigidbody2D>();
 
     }
@@ -79,11 +86,11 @@ public class LustScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(invulerabilityTimer > 0)
+        if (invulerabilityTimer > 0)
         {
             invulerabilityTimer -= Time.deltaTime;
         }
-        
+
         // does Kiss attack every 5 seconds
         if (tempTime > 0) {
 
@@ -91,7 +98,7 @@ public class LustScript : MonoBehaviour {
 
         }
 
-        else {
+        else if (Frn) {
 
             Kiss();
             tempTime = 5;
@@ -99,8 +106,23 @@ public class LustScript : MonoBehaviour {
         }
 
         // walk below half health
-        if ( health <= 3 ) {
+        if (health <= 3) {
+
+            Frn = false;
+
             Walk();
+
+            Destroy(groundPlayform[0]);
+
+            Destroy(groundPlayform[1]);
+
+        }
+
+        if ( health <= 0 ) {
+
+            Instantiate(Door,new Vector3( 12, -6, 0 ) , Quaternion.identity );
+
+            Destroy(gameObject);
 
         }
 

@@ -53,7 +53,11 @@ public class PlayerController : MonoBehaviour {
         {
             rigi.AddForce(new Vector2(0, jumpForce));
         }
+<<<<<<< Updated upstream
         
+=======
+       // Debug.Log(rigi.velocity);
+>>>>>>> Stashed changes
         //speed limit x
         if(rigi.velocity.x > speedLimit)//check to see if max speed in x direction
         {

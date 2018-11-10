@@ -32,10 +32,30 @@ public class LustScript : MonoBehaviour {
 
     private Rigidbody2D rig;
 
+    GameObject kissSpawn;
+
+    public AudioClip Laugh;
+
+    public AudioClip Oof;
+
+    AudioSource soundPlayer;
+
+    public GameObject[] groundPlayform;
+
+    private float invulerabilityTimer = 0;
+
+    private float invulerabilitytime = 1.5f;
+
    
 
     // Use this for initialization
     void Start () {
+
+        health = 6;
+
+        soundPlayer = gameObject.GetComponent<AudioSource>();
+
+        kissSpawn = GameObject.Find("KissSpawn");
 
         // health set to 6
         health = 6;
@@ -59,6 +79,10 @@ public class LustScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if(invulerabilityTimer > 0)
+        {
+            invulerabilityTimer -= Time.deltaTime;
+        }
         
         // does Kiss attack every 5 seconds
         if (tempTime > 0) {
@@ -85,7 +109,8 @@ public class LustScript : MonoBehaviour {
     // method to launch hearts that follow player and spilt into 3 little hearts in HeartProjectile script
     public void Kiss() {
 
-        Instantiate(kiss, new Vector3(transform.position.x - 2, transform.position.y, 0), Quaternion.identity);
+        Instantiate(kiss,kissSpawn.transform.position, Quaternion.identity);
+        //soundPlayer.clip = Oof;
 
     }
 
@@ -127,12 +152,21 @@ public class LustScript : MonoBehaviour {
 
     }
 
-    public void Wait( float time) {
+    public void Wait() {
 
         
 
 
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "PlayerAttack" && invulerabilityTimer <= 0)
+        {
+            health -= 1;
+        }
+    }
+
 }
 

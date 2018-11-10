@@ -56,6 +56,7 @@ public class ChangeHealthStatus : MonoBehaviour {
 	  	/* If player health is 0, remove image */
 	  	else{
 	  		healthFlag = 0;
+	  		Time.timeScale = 0;
 	  		this.transform.GetComponent<UnityEngine.UI.Image>().sprite = noHealth;
 	  		gameOver.SetActive(true);
 	  	}

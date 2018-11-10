@@ -14,12 +14,20 @@ using UnityEngine;
 
 public class PauseMenuScript : MonoBehaviour {
 
-	/* Declare pause menu object */
+    /* Declare pause menu object */
+    public GameObject CanvusPrefab;
 	public GameObject pauseObjects;
 
 	void Start () {
 
-		Time.timeScale = 1;
+        CanvusPrefab = Instantiate(CanvusPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        Transform temp = CanvusPrefab.transform.Find("pauseObjects");
+        pauseObjects = temp.gameObject;
+
+        CanvusPrefab.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        CanvusPrefab.GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        Time.timeScale = 1;
 		
 		hidePaused();
 

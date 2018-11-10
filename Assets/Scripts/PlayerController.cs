@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public float jumpForce;
     public float speedLimit;
-    public float invulterabilityTimer;
+    private float invulterabilityTimer;
 
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
     public int Health;
@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rigi; // was private
     private PlayerWeapons Weps;
     private GameObject door;
+
+    public PhysicsMaterial2D PlayerDefault;
+    public PhysicsMaterial2D PlayerJump;
+    public BoxCollider2D PlayerPhysicalHitbox;
 
 
     /* Initialize animator */
@@ -100,6 +104,15 @@ public class PlayerController : MonoBehaviour {
             rigi.AddForce(new Vector2(0, jumpForce));
         }
 
+        if (onGround)
+        {
+            PlayerPhysicalHitbox.sharedMaterial = PlayerDefault;
+        } 
+        else 
+        {
+            PlayerPhysicalHitbox.sharedMaterial = PlayerJump;
+        }
+
         //speed limit x
         if(rigi.velocity.x > speedLimit)//check to see if max speed in x direction
         {
@@ -116,7 +129,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    private void TakeDamage()
+    void TakeDamage()
     {
         float InvTime = 3;
 

@@ -104,13 +104,13 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457380448476212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014738783, y: -0.158455}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -121,7 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23688492, y: 0.01779452}
+  m_Size: {x: 0.5, y: 0.1}
   m_EdgeRadius: 0
 --- !u!61 &61341926838930758
 BoxCollider2D:
@@ -160,7 +160,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014641672, y: 0.00088989735}
+  m_Offset: {x: 0.017371058, y: 0.018904008}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24177217, y: 0.32168198}
+  m_Size: {x: 0.2887181, y: 0.35771018}
   m_EdgeRadius: 0
 --- !u!95 &95300749522421388
 Animator:
@@ -219,14 +219,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpForce: 400
+  jumpForce: 350
   speedLimit: 5
+  invulterabilityTimer: 0
   currentWeapon: 0
   Health: 0
   rigi: {fileID: 50246025505119474}
-  PlayerDefault: {fileID: 6200000, guid: 6477498985001254f9cbaf2b56513098, type: 2}
-  PlayerJump: {fileID: 6200000, guid: 053ee36a3eb35f0488ba6a56e0f11336, type: 2}
-  PlayerPhysicalHitbox: {fileID: 61681554457572596}
 --- !u!114 &114943997353412692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,8 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6374792fe6b42ab80707edcce8208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvusPrefab: {fileID: 1881034445799416, guid: 40f6b1be17fa545dfa2f8cc58de4327b,
-    type: 2}
   pauseObjects: {fileID: 0}
 --- !u!212 &212003521068716418
 SpriteRenderer:

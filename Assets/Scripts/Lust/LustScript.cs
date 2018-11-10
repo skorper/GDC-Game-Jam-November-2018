@@ -104,7 +104,6 @@ public class LustScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
 
         moveDistanceVector = new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y);
-
         distance = moveDistanceVector.magnitude;
 
 

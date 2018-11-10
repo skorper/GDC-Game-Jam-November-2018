@@ -29,9 +29,8 @@ public class ChangeHealthStatus : MonoBehaviour {
 
 
 	void Start(){
-        player = GameObject.FindGameObjectWithTag("Player");
 		gameOver.SetActive(false);
-    }
+	}
 
 	/* Check player health every update */
 	void Update(){

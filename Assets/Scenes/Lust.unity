@@ -1138,6 +1138,7 @@ GameObject:
   - component: {fileID: 1866564530}
   - component: {fileID: 1866564529}
   - component: {fileID: 1866564527}
+  - component: {fileID: 1866564528}
   m_Layer: 10
   m_Name: Lust
   m_TagString: Untagged
@@ -1156,12 +1157,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c57e05a22c3ff743a1c7c42fac6bd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 5
   kiss: {fileID: 1861403503211044, guid: 0df2f894b7853714eb44514c0b2970f7, type: 2}
   trapFloor: {fileID: 0}
   trapDoor: {fileID: 0}
   platform: {fileID: 188617338}
   player: {fileID: 0}
+--- !u!50 &1866564528
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866564526}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &1866564529
 BoxCollider2D:
   m_ObjectHideFlags: 0

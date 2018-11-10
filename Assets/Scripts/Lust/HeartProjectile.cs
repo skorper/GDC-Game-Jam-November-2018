@@ -28,7 +28,7 @@ public class HeartProjectile : MonoBehaviour {
     Rigidbody2D rb; 
 
     private void Start() {
-
+        // sets timer for heart detonate and finds player
         timer = 2;
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,6 +44,7 @@ public class HeartProjectile : MonoBehaviour {
         
         if (Detonate) {
 
+            // sets angle for each little heart to speard and destroys big heart
             angle = Mathf.Atan2( transform.position.y - player.transform.position.y , transform.position.x - player.transform.position.x);
 
             timer -= Time.deltaTime;
@@ -70,10 +71,12 @@ public class HeartProjectile : MonoBehaviour {
 
         }
 
+        // sets position of the hearts
         transform.position = new Vector2(transform.position.x - (speed * Time.deltaTime * Mathf.Cos(angle)), transform.position.y - (speed * Time.deltaTime * Mathf.Sin(angle)));
 
     }
 
+    // destorys hearts on collision 
     private void OnCollisionEnter2D(Collision2D other) {
 
         Destroy(gameObject);

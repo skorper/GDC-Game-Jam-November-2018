@@ -38,6 +38,7 @@ public class EnemyOneController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        // enemy moves in the direction of the player
         moveDistanceVector = new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y);
 
         distance = moveDistanceVector.magnitude;

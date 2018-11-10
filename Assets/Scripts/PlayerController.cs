@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float speedLimit;
     private float invulterabilityTimer;
+    private float ignoreTimer;
+    private float ignoretime = 1;
 
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
     public int Health;
@@ -77,6 +79,11 @@ public class PlayerController : MonoBehaviour {
             invulterabilityTimer -= Time.deltaTime;
         }
 
+        if(ignoreTimer > 0)
+        {
+            ignoreTimer -= Time.deltaTime;
+        }
+
     }
 
     void Movement()
@@ -120,12 +127,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         //speed limit x
-        if(rigi.velocity.x > speedLimit)//check to see if max speed in x direction
+        if(rigi.velocity.x > speedLimit && ignoreTimer <= 0)//check to see if max speed in x direction
         {
             rigi.velocity = new Vector2(speedLimit, rigi.velocity.y);
         }
 
-        if (rigi.velocity.x < -speedLimit)//check to see if max speed in -x direction
+        if (rigi.velocity.x < -speedLimit && ignoreTimer <= 0)//check to see if max speed in -x direction
         {
             rigi.velocity = new Vector2(-speedLimit, rigi.velocity.y);
         }
@@ -143,7 +150,6 @@ public class PlayerController : MonoBehaviour {
 
         Health -= 1;
 
-        Debug.Log("Lose health");
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -224,7 +230,10 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-
+    public void IgnoreLimits()
+    {
+        ignoreTimer = ignoretime;
+    }
 
 
 

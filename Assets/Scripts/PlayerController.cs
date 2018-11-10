@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public float jumpForce;
     public float speedLimit;
+    public float invulterabilityTimer;
+
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
+    public int Health;
 
     private bool onGround = false;
     private Rigidbody2D rigi;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     
 	void Start ()
     {
+        Health = 3;
         rigi = gameObject.GetComponent<Rigidbody2D>();
         Weps = gameObject.GetComponent<PlayerWeapons>();
         Weps.SwapWeapons("sword", "");
@@ -32,6 +36,10 @@ public class PlayerController : MonoBehaviour {
     {
         Movement();
 
+        if(invulterabilityTimer > 0)
+        {
+
+        }
 
 
     }
@@ -74,7 +82,24 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    void TakeDamage()
+    {
+        float InvTime = 3;
 
+        invulterabilityTimer = InvTime;
+
+        Health -= 1;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if(collision.gameObject.tag == "EnemyAttack" && invulterabilityTimer <= 0)
+        {
+            TakeDamage();
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

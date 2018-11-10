@@ -1178,6 +1178,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1900920940417088, guid: 7bf32c53496120a4b95d879d5031b8f6, type: 2}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf32c53496120a4b95d879d5031b8f6, type: 2}
   m_IsPrefabAsset: 0

@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour {
 
     */
 
-    void changeState(int state, int direction){
+    public void changeState(int state, int direction){
 
         if (_currentAnimationState == state && _currentAnimationDirection == direction)
             return;

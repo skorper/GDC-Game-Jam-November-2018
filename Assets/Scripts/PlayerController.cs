@@ -117,3 +117,4 @@ public class PlayerController : MonoBehaviour {
     }
 
 }
+//rigi.AddForce(moveSpeed * (float)Math.Cos((moveRadians)), 0, moveSpeed * (float)Math.Sin((moveRadians)));

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     public int Health;
 
     private bool onGround = false;
-    private Rigidbody2D rigi;
+    public Rigidbody2D rigi; // was private
     private PlayerWeapons Weps;
     private GameObject door;
 
@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour {
         {
 
         }
-
 
     }
 

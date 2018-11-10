@@ -12,10 +12,14 @@ public class KickPlatform : MonoBehaviour {
 
     private float resetTime = 3;
 
+    public PlayerController playerController;
+
 	// Use this for initialization
 	void Start () {
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        playerController = player.gameObject.GetComponent<PlayerController>();
 
     }
 	
@@ -34,7 +38,8 @@ public class KickPlatform : MonoBehaviour {
         
         if ( collision.gameObject.CompareTag("Player") && resetTimer <= 0) {
 
-            player.transform.GetComponent<PlayerController>().rigi.AddForce(new Vector2(-pushBackSpeed, 1000));
+            playerController.IgnoreLimits();
+            player.transform.GetComponent<PlayerController>().rigi.AddForce(new Vector2(-pushBackSpeed, pushBackSpeed));
             resetTimer = resetTime;
         }
     }

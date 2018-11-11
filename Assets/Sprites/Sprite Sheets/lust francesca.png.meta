@@ -12,6 +12,14 @@ TextureImporter:
     21300014: lust francesca_7
     21300016: lust francesca_8
     21300018: lust francesca_9
+    21300020: lust francesca_10
+    21300022: lust francesca_11
+    21300024: lust francesca_12
+    21300026: lust francesca_13
+    21300028: lust francesca_14
+    21300030: lust francesca_15
+    21300032: lust francesca_16
+    21300034: lust francesca_17
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -130,29 +138,18 @@ TextureImporter:
       name: lust francesca_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 604
-        width: 39
+        x: 13
+        y: 606
+        width: 55
         height: 93
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 7.5, y: 46.5}
-        - {x: -15.5, y: 46.5}
-        - {x: -19.5, y: 39.5}
-        - {x: -19.5, y: -14.5}
-        - {x: -16.5, y: -42.5}
-        - {x: -11.5, y: -46.5}
-        - {x: 9.5, y: -46.5}
-        - {x: 13.5, y: -44.5}
-        - {x: 19.5, y: -19.5}
-        - {x: 19.5, y: 25.5}
-        - {x: 13.5, y: 44.5}
+      outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710c7e3b7deb5484bb1f6e2526ef6ae8
+      spriteID: 70855769b8ed6f442871bca8dcf3f783
       vertices: []
       indices: 
       edges: []
@@ -172,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ff1fc54a0ed543a7aaced09ad8828d9
+      spriteID: 079fc72e7d8340e43a24d4fc0b74377d
       vertices: []
       indices: 
       edges: []
@@ -181,10 +178,10 @@ TextureImporter:
       name: lust francesca_2
       rect:
         serializedVersion: 2
-        x: 19
+        x: 16
         y: 495
-        width: 53
-        height: 90
+        width: 55
+        height: 93
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a76ea072fb93f41d2b454155d7f290b5
+      spriteID: 1b6da0c73e6854d40b38101773aa7dda
       vertices: []
       indices: 
       edges: []
@@ -201,10 +198,10 @@ TextureImporter:
       name: lust francesca_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 92
         y: 495
-        width: 52
-        height: 90
+        width: 55
+        height: 93
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,53 +209,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec289c6aec15443819022b873469efbe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lust francesca_4
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 451
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -1.5, y: 6.5}
-        - {x: -5.5, y: 2.5}
-        - {x: -5.5, y: -6.5}
-        - {x: 0.5, y: -6.5}
-        - {x: 5.5, y: -2.5}
-        - {x: 5.5, y: 6.5}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4074951f86d745a6a11991711ff4eaa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lust francesca_5
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 455
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad6b6a1a864744204ba64350cb8fa096
+      spriteID: 7cb6493e5a10a544fac45fe24d5c51b1
       vertices: []
       indices: 
       edges: []
@@ -267,9 +218,9 @@ TextureImporter:
       name: lust francesca_6
       rect:
         serializedVersion: 2
-        x: 48
-        y: 360
-        width: 54
+        x: 32
+        y: 362
+        width: 55
         height: 93
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -278,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf653c9cd9dc4142bc94b2591553e59
+      spriteID: eb9feb7f4adc2be4b8f013b90382810e
       vertices: []
       indices: 
       edges: []
@@ -287,9 +238,9 @@ TextureImporter:
       name: lust francesca_7
       rect:
         serializedVersion: 2
-        x: 116
-        y: 352
-        width: 72
+        x: 134
+        y: 354
+        width: 55
         height: 93
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -298,47 +249,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dabc1153f96040dca0d52d910955fb0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lust francesca_8
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 443
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fac63c33e643d41c681f83214f8c9a10
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lust francesca_9
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 387
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7caf038c22a1b4a918e1e8bb07cf1d81
+      spriteID: 40e297bec694a1a44afeca3188d1bbe6
       vertices: []
       indices: 
       edges: []

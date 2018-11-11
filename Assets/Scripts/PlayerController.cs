@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private float ignoreTimer;
     private float ignoretime = 1;
     private int actualDirection = 0;
+    private int actualState = 0;
 
     public int currentWeapon; //the index of weapon assests, go to WeaponsAndAbilites method for more info
     public int Health;
@@ -93,45 +94,18 @@ public class PlayerController : MonoBehaviour {
         //movement inputs
         if (Input.GetKey("a") && !Input.GetKey("d"))//move left
         {
-            actualDirection = LEFT;
-            /* Call on changeState method to change state */
-            if (Time.timeScale != 0 && Weps.swordTimer < 0)
-            {
-                 changeState(STATE_WALK, actualDirection);     
-            }
-
+  
             rigi.AddForce(new Vector2(-moveSpeed, 0));
 
         }
 
         if (Input.GetKey("d") && !Input.GetKey("a"))//move right
         {
-            actualDirection = RIGHT;
-            /* Call on changeState method to change state */
-            if (Time.timeScale != 0 && Weps.swordTimer < 0)
-            {
-                changeState(STATE_WALK, actualDirection);
-            }
-
             rigi.AddForce(new Vector2(moveSpeed, 0));
         }
 
-        if(!Input.GetKey("d") && !Input.GetKey("a") )
-        {
-            if (rigi.velocity.magnitude != 0)
-            {
-                changeState(STATE_WALK, actualDirection);
-            }
-            else
-            {
-                changeState(STATE_IDLE, 0);
-            }
-        }
+        changeState(actualState, actualDirection);
 
-        if(Weps.swordTimer > 0)
-        {
-            changeState(STATE_STAB, actualDirection);
-        }
 
         if (Input.GetKeyDown("space") && onGround) //jump, can only go if on the ground
         {
@@ -146,6 +120,48 @@ public class PlayerController : MonoBehaviour {
         {
             PlayerPhysicalHitbox.sharedMaterial = PlayerJump;
         }
+        // animation stuff
+
+        if(Time.timeScale != 0)
+        {
+
+            if (Input.GetKey("d") && !Input.GetKey("a"))
+            {
+                actualDirection = RIGHT;
+            }
+
+            if (Input.GetKey("a") && !Input.GetKey("d"))
+            {
+                actualDirection = LEFT;
+            }
+            //moveing right
+            if (Input.GetKey("a") && !Input.GetKey("d"))
+            {
+                actualDirection = LEFT;
+                actualState = STATE_WALK;
+            } else
+            if(Input.GetKey("d") && !Input.GetKey("a"))
+            {
+                actualDirection = RIGHT;
+                actualState = STATE_WALK;
+            } else
+            //idle
+            if ((!Input.GetKey("a") || !Input.GetKey("d")) && Weps.swordTimer <= 0)
+            {
+                actualState = STATE_IDLE;
+            }
+            //sword
+            if (Weps.swordTimer > 0)
+            {
+                actualState = STATE_STAB; 
+            }
+
+            changeState(actualState, actualDirection);
+            Debug.Log(actualState + " || " + actualDirection );
+
+        }
+
+
 
         //speed limit x
         if(rigi.velocity.x > speedLimit && ignoreTimer <= 0)//check to see if max speed in x direction
@@ -221,8 +237,6 @@ public class PlayerController : MonoBehaviour {
 
     public void changeState(int state, int direction){
 
-        if (_currentAnimationState == state && _currentAnimationDirection == direction)
-            return;
         switch (state)
         {
             case STATE_WALK:
@@ -250,6 +264,7 @@ public class PlayerController : MonoBehaviour {
 
         _currentAnimationState = state;
         _currentAnimationDirection = direction;
+
 
     }
 

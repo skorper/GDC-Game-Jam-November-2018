@@ -50,13 +50,16 @@ public class LustScript : MonoBehaviour {
 
     private bool bossDead;
 
-    public GameObject Door; 
-   
+    public GameObject Door;
+
+    Animator animate;
 
     // Use this for initialization
     void Start () {
 
         health = 6;
+
+        animate = this.GetComponent<Animator>();
 
         soundPlayer = gameObject.GetComponent<AudioSource>();
 
@@ -68,9 +71,6 @@ public class LustScript : MonoBehaviour {
         // in Francesca form 
         Frn = true;
 
-
-        //time = 5; 
-        
         // wait in seconds
         tempTime = 5;
 
@@ -85,7 +85,7 @@ public class LustScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        Debug.Log(health);
         if (invulerabilityTimer > 0)
         {
             invulerabilityTimer -= Time.deltaTime;
@@ -94,15 +94,17 @@ public class LustScript : MonoBehaviour {
         // does Kiss attack every 5 seconds
         if (tempTime > 0) {
 
+            
             tempTime -= Time.deltaTime;
 
         }
 
         else if (Frn) {
-
+            animate.SetInteger("KissState", 1);
             Kiss();
             tempTime = 5;
 
+            
         }
 
         // walk below half health
@@ -136,14 +138,7 @@ public class LustScript : MonoBehaviour {
 
     }
 
-    public void Punch() {
-
-    }
-
-    public void Pommel () {
-
-
-    }
+    
 
     // makes Lust goes toward player
     public void Walk () {
@@ -169,18 +164,6 @@ public class LustScript : MonoBehaviour {
 
     }
 
-    public void SideStep() {
-
-
-    }
-
-    public void Wait() {
-
-        
-
-
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -189,6 +172,8 @@ public class LustScript : MonoBehaviour {
             health -= 1;
         }
     }
+
+
 
 }
 
